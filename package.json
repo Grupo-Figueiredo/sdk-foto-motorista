@@ -1,0 +1,41 @@
+{
+  "name": "@grupo-figueiredo/sdk-foto-motorista",
+  "version": "0.1.0",
+  "description": "Classifica se o motorista esta dentro ou fora da cabine a partir de uma selfie, usando um modelo MobileNetV3 embarcado (TFLite).",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "assets"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "react-native",
+    "tflite",
+    "mobilenet",
+    "classificacao"
+  ],
+  "author": "patrickexfig <patrick.pontes@grupofigueiredo.com.br>",
+  "license": "UNLICENSED",
+  "peerDependencies": {
+    "react-native": "*",
+    "react-native-fast-tflite": ">=3.0.0",
+    "react-native-nitro-modules": "*"
+  },
+  "dependencies": {
+    "@bam.tech/react-native-image-resizer": "^3.0.11",
+    "jpeg-js": "^0.4.4"
+  },
+  "devDependencies": {
+    "react-native-fast-tflite": "^3.0.1",
+    "react-native-nitro-modules": "^0.37.1",
+    "typescript": "^5.4.0"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  }
+}
