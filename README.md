@@ -11,6 +11,34 @@ Modelo treinado em [modelo-foto-motorista](../modelo-foto-motorista)
 
 ## Instalação
 
+Esse pacote é privado e fica no GitHub Packages, não no npm público — o
+app que for consumi-lo precisa apontar o escopo `@grupo-figueiredo` pra
+esse registry e se autenticar.
+
+**1. No projeto do app**, crie (ou edite) o `.npmrc` na raiz — esse arquivo
+é seguro de commitar, não tem segredo nenhum:
+
+```
+@grupo-figueiredo:registry=https://npm.pkg.github.com
+```
+
+**2. Gere um token de acesso** com escopo `read:packages` (Settings →
+Developer settings → Personal access tokens, na sua conta GitHub membra
+da organização Grupo-Figueiredo) e autentique o npm com ele **fora do
+repositório** (nunca commitar token). No `~/.npmrc` do seu usuário
+(global, não o do projeto):
+
+```
+//npm.pkg.github.com/:_authToken=SEU_TOKEN_AQUI
+```
+
+Em CI, defina isso via variável de ambiente/secret em vez de um arquivo:
+```
+//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
+```
+
+**3. Instale normalmente:**
+
 ```bash
 npm install @grupo-figueiredo/sdk-foto-motorista react-native-fast-tflite react-native-nitro-modules
 cd ios && pod install
